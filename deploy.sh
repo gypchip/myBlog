@@ -15,4 +15,4 @@ git commit -m 'deploy'
 git branch -M main
 
 # 如果你想要部署到 https://USERNAME.github.io
-git push -f git@github.com:gypchip/gypchip.github.io.git main
+git push -f https://github.com/gypchip/gypchip.github.io.git main

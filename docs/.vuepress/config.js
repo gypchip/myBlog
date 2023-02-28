@@ -31,7 +31,7 @@ module.exports = {
           {
             text: 'Vue',
             items: [
-              {text: 'vue原理分析',link: '/技术文章/vue/vue原理分析'},
+              {text: 'vue双向绑定原理分析',link: '/技术文章/vue/vue双向绑定原理分析'},
               {text: 'vue自定义指令', link: '/技术文章/vue/vue自定义指令'}
             ]
           }
