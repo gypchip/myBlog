@@ -29,10 +29,17 @@ module.exports = {
         text: "技术分享", link: '/技术文章/',icon: 'reco-api',
         items: [
           {
+            text: 'react',
+            items: [
+              { text: 'react函数组件和类组件', link: '/技术文章/react/react-01' },
+              { text: 'react中setState', link: '/技术文章/react/react-02' },
+            ]
+          },
+          {
             text: 'Vue',
             items: [
               {text: 'vue双向绑定原理分析',link: '/技术文章/vue/vue双向绑定原理分析'},
-              {text: 'vue自定义指令', link: '/技术文章/vue/vue自定义指令'}
+              {text: 'TypeScript与组合式API', link: '/技术文章/vue/vue3-01'}
             ]
           }
         ]
