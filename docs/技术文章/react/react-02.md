@@ -50,13 +50,14 @@ class Demo extends React.Component {
   }
 }
 ```
-## setState异步执行
+## setState同步/异步问题
 在React18中setState在任何地方执行，都是异步操作。例如：合成事件、周期函数、定时器
 + React18中有一套更新队列的机制
 + 基于异步操作，实现状态批处理
 + 减少视图更新的次数，降低渲染消耗的性能
 + 让更新的逻辑流程更新清晰稳健
 
+在React16中：如果在合成事件（jsx元素中onXXX），周期函数中，setState是异步的，但是如果setState出现在其他异步操作中例如：定时器，手动获取DOM元素做的事件绑定等，它将变为同步操作【立即更新状态让视图渲染】
 ```js
 class Demo extends React.Component {
   state = {
@@ -76,11 +77,12 @@ class Demo extends React.Component {
     console.log(this.state.z)  // 0
 
     // 同步任务不执行定时器
-    // 当定时器执行，setState就是异步，再次渲染一次视图更新
+    // React18 当定时器执行，setState就是异步，再次渲染一次视图更新
+    // React16 当定时执行，setState是同步更新的，立即执行
     setTimeout(()=>{
       this.setState({z: z+1})
-      console.log(this.state.z)  // 1 第一次更新队列之后z已经+1了
-    })
+      console.log(this.state.z)  // React18:1 第一次更新队列之后z已经+1了
+    },1000)
   }
   render() {
     let {x, y, z} = this.state
@@ -96,3 +98,39 @@ class Demo extends React.Component {
 }
 ```
 当在handleClick函数中遇到setState，不会立即更新状态和视图，而是加入到更新队列中，代码至上而下的执行，只会对当前上下文的同步代码进行处理，当上下文中的代码都处理完后，会让更新队列的任务统一批处理一次，统一渲染一次
+## 利用flushSync使setState同步
+```js
+import React from "react"
+import { flushSync } from "react-dom"
+class Demo extends React.Component {
+  state = {
+    x: 10,
+    y: 5,
+    z:0
+  }
+  handleClick = ()=> {
+    let {x, y, z} = this.state
+    this.setState({x: x+1});
+    console.log(this.state) // 10 5 0
+    flushSync(()=>{ // 遇到flushSync会立即渲染一次
+      this.setState({y: y+1});
+      console.log(this.state) // 10 5 0
+    })
+    console.log(this.state) // 11 6 0
+    // 在修改z之前，要保证x/y都已经更改和让视图更新
+    this.setState({z: this.state.x + this.state.y});
+    console.log(this.state.z)  
+  }
+  render() {
+    let {x, y, z} = this.state
+    return (
+      <div>
+        {x} - {y} - {z}
+        <button onClick={this.handleClick}>
+          按钮
+        </button>
+      </div>
+    )
+  }
+}
+```
