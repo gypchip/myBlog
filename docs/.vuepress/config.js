@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Version: 3.0
+ * @Author: ganyanping
+ * @Date: 2023-02-24 17:27:31
+ * @LastEditors: ganyanping
+ * @LastEditTime: 2023-03-13 15:04:55
+ */
 module.exports = {
   title: '阿甘的博客',
   description: 'Just playing around',
@@ -33,6 +41,7 @@ module.exports = {
             items: [
               { text: 'react函数组件和类组件', link: '/技术文章/react/react-01' },
               { text: 'react中setState', link: '/技术文章/react/react-02' },
+              { text: 'React中合成事件this的指向和事件对象', link: '/技术文章/react/react-03' },
             ]
           },
           {
