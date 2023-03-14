@@ -4,7 +4,7 @@
  * @Author: ganyanping
  * @Date: 2023-02-24 17:27:31
  * @LastEditors: ganyanping
- * @LastEditTime: 2023-03-13 15:04:55
+ * @LastEditTime: 2023-03-13 15:49:31
  */
 module.exports = {
   title: '阿甘的博客',
@@ -36,6 +36,13 @@ module.exports = {
       { 
         text: "技术分享", link: '/技术文章/',icon: 'reco-api',
         items: [
+          {
+            text: 'JavaScript',
+            items: [
+              { text: '事件及事件委托', link: '/技术文章/JavaScript/js-01' },
+             
+            ]
+          },
           {
             text: 'react',
             items: [
