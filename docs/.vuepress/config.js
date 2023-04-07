@@ -4,7 +4,7 @@
  * @Author: ganyanping
  * @Date: 2023-02-24 17:27:31
  * @LastEditors: ganyanping
- * @LastEditTime: 2023-03-23 10:54:04
+ * @LastEditTime: 2023-04-07 10:22:04
  */
 module.exports = {
   title: '阿甘的博客',
@@ -56,7 +56,8 @@ module.exports = {
             items: [
               {text: 'vue双向绑定原理分析',link: '/技术文章/vue/vue双向绑定原理分析'},
               {text: 'TypeScript与组合式API', link: '/技术文章/vue/vue3-01'},
-              {text: 'Vue3中Proxy为什么要配合Reflect使用', link: '/技术文章/vue/vue3-02'}
+              {text: 'Vue3中Proxy为什么要配合Reflect使用', link: '/技术文章/vue/vue3-02'},
+              {text: '前端路由机制', link: '/技术文章/vue/前端路由机制'}
             ]
           }
         ]
