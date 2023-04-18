@@ -4,7 +4,7 @@
  * @Author: ganyanping
  * @Date: 2023-02-24 17:27:31
  * @LastEditors: ganyanping
- * @LastEditTime: 2023-04-07 10:22:04
+ * @LastEditTime: 2023-04-10 14:31:52
  */
 module.exports = {
   title: '阿甘的博客',
@@ -48,7 +48,7 @@ module.exports = {
             items: [
               { text: 'react函数组件和类组件', link: '/技术文章/react/react-01' },
               { text: 'react中setState', link: '/技术文章/react/react-02' },
-              { text: 'React中合成事件this的指向和事件对象', link: '/技术文章/react/react-03'},
+              { text: 'React中合成事件this的指向和事件对象', link: '/技术文章/react/react-03'}
             ]
           },
           {
@@ -58,6 +58,12 @@ module.exports = {
               {text: 'TypeScript与组合式API', link: '/技术文章/vue/vue3-01'},
               {text: 'Vue3中Proxy为什么要配合Reflect使用', link: '/技术文章/vue/vue3-02'},
               {text: '前端路由机制', link: '/技术文章/vue/前端路由机制'}
+            ]
+          },
+          {
+            text: '前端工程化',
+            items: [
+              {text: 'webpack', link: '/技术文章/前端工程化/webpack-01.md'}
             ]
           }
         ]

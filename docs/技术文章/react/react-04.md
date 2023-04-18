@@ -7,7 +7,7 @@ categories:
 - 'react'
 ---
 
-## react 脚手架创建项目
+### react 脚手架创建项目
 ```shell
 npm install -g create-react-app
 create-react-app myreact
@@ -16,22 +16,22 @@ create-react-app myreact
 ```shell
 npm run eject
 ```
-## JSX构建视图基础知识
+### JSX构建视图基础知识
 JS表达式：有执行结果的算js表达式
 + 变量
 + 判断： 三元运算符
 + 循环： map
 1. 在HTML中嵌入JS表达式，需要基于{}胡子语法
-2. 在ReactDom.createRoot的时候，不能直接把HTML/Body作为容器，需要指定一个额外的盒子例如：#root
+2. 在`ReactDom.createRoot`的时候，不能直接把HTML/Body作为容器，需要指定一个额外的盒子例如：`#root`
 3. 每个构建的视图，只能有一个根节点
   + 出现多个根节点，则报错
-  + React中提供一个特殊的节点（标签）:<></>,React.Fragment(空文档标记标签)，既保证可以只有一个根节点，又不会新增一个HTML层级结构。
+  + React中提供一个特殊的节点（标签）:`<></>`,`React.Fragment`(空文档标记标签)，既保证可以只有一个根节点，又不会新增一个`HTML`层级结构。
 4. 给元素设置样式
-  + 行内样式： {{color: red, fontSize: 18px}}
+  + 行内样式： `{{`color: red, fontSize: 18px`}}`
   + 设置样式类名: className
-## JSX底层处理机制
-  第一步：把我们编写的jsx语法，编译为虚拟DOM对象【virtual DOM】虚拟DOM对象：框架自己内部构建的一套对象体系（对象的相关成员都是React内部规定的），基于这些属性描述出，我们所构建的视图中的，DOM节点的相关特征。
-  1. 基于babel-preset-react-app把jsx编译为React.
+### JSX底层处理机制
+  第一步：把我们编写的`jsx`语法，编译为虚拟DOM对象【virtual DOM】虚拟DOM对象：框架自己内部构建的一套对象体系（对象的相关成员都是React内部规定的），基于这些属性描述出，我们所构建的视图中的，DOM节点的相关特征。
+  1. 基于babel-preset-react-app把`jsx`编译为React.
   createElement(
     ele, // 元素
     props,
@@ -41,7 +41,7 @@ JS表达式：有执行结果的算js表达式
   + props： 元素的属性集合，是一个对象
   + children：第三个及以后参数，都是当前元素的子节点
   2. 再把React.createElement方法执行，得到virtualDOM对象
-  ```jsx
+  ```js
   virtualDOM = {
     $$typeof: Symbol(react.element),
     key: null,
@@ -57,7 +57,7 @@ JS表达式：有执行结果的算js表达式
 
   第二步：把构建的虚拟DOM渲染为真实DOM。真实DOM浏览器页面中，最后渲染出来，让用户看见的DOM 元素。
 
-    基于ReactDOM中的render方法处理
+  基于ReactDOM中的render方法处理
     
 ```js
     function createElement(ele, props, ...children) {
@@ -144,10 +144,10 @@ JS表达式：有执行结果的算js表达式
   补充说明：第一次渲染页面是从virtualDOM->真实DOM；但是后期视图更新是经过DOM-DIFF的对比，计算出补丁包（两次视图差异的部分），把补丁包进行渲染！！
 
 
-## 函数组件底层处理机制
+### 函数组件底层处理机制
 函数组件
 
-在src目录中，创建一个xxx.jsx的文件，就是要创建一个组件，在此文件中，创建一个函数，让函数返回JSX视图。
+在src目录中，创建一个`xxx.jsx`的文件，就是要创建一个组件，在此文件中，创建一个函数，让函数返回`JSX`视图。
 
 1. 渲染机制：
  + 基于babel-preset-react-app调用的组件转换为createElement格式
@@ -192,8 +192,3 @@ JS表达式：有执行结果的算js表达式
     把对象设置为不可扩展：Object.preventExtensions()
     检视是否可扩展: Object.isExtensible(obj)
     +被设置的对象，除了不能新增成员，其余的都可以操作处理
-
-
-
-
-
